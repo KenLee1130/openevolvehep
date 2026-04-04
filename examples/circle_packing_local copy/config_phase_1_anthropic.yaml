@@ -1,35 +1,19 @@
 # Configuration for circle packing constructor evolution (n=26)
-max_iterations: 1000  # Increased iterations
+max_iterations: 100 # Increased iterations
 checkpoint_interval: 10
 log_level: "INFO"
 
 # LLM configuration
-# llm:
-#   primary_model: "google/gemini-2.0-flash-001"
-#   # primary_model: "llama3.1-8b"
-#   primary_model_weight: 0.8
-#   secondary_model: "anthropic/claude-3.7-sonnet"
-#   # secondary_model: "llama-4-scout-17b-16e-instruct"
-#   secondary_model_weight: 0.2
-#   api_base: "https://openrouter.ai/api/v1"
-#   # api_base: "https://api.cerebras.ai/v1"
-#   temperature: 0.7
-#   top_p: 0.95
-#   max_tokens: 8192
-#   timeout: 600 
-
 llm:
-  primary_model: "omnicoder-claude-4.6-opus-uncensored"
-  primary_model_weight: 1.0
-  api_base: "http://127.0.0.1:1235/v1"
-  
-  api_key: "lm-studio"
+  primary_model: "claude-sonnet-4-5-20250929"
+  primary_model_weight: 0.8
+  secondary_model: "claude-opus-4-5-20251101"
+  secondary_model_weight: 0.2
+  api_base: "https://api.anthropic.com/v1"
+  api_key: "${ANTHROPIC_API_KEY}"
   temperature: 0.7
-  top_p: 0.95
-  max_tokens: 1024 #4096
-  timeout: 6000
-
-
+  max_tokens: 8192
+  timeout: 600
 
 # Prompt configuration
 prompt:
@@ -50,7 +34,7 @@ prompt:
 
 # Database configuration
 database:
-  population_size: 60  # Increased population for more diversity
+  population_size: 60 # Increased population for more diversity
   archive_size: 25
   num_islands: 4
   elite_selection_ratio: 0.3
@@ -65,5 +49,5 @@ evaluator:
   use_llm_feedback: false
 
 # Evolution settings
-diff_based_evolution: false  # Use full rewrites instead of diffs
-allow_full_rewrites: true    # Allow full rewrites for constructor functions
+diff_based_evolution: false # Use full rewrites instead of diffs
+allow_full_rewrites: true # Allow full rewrites for constructor functions

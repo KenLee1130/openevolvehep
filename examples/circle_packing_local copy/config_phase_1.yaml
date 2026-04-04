@@ -19,14 +19,13 @@ log_level: "INFO"
 #   timeout: 600 
 
 llm:
-  primary_model: "omnicoder-claude-4.6-opus-uncensored"
-  primary_model_weight: 1.0
+  primary_model: "nvidia/nemotron-3-super"
+  primary_model_weight: 1
   api_base: "http://127.0.0.1:1235/v1"
-  
   api_key: "lm-studio"
   temperature: 0.7
   top_p: 0.95
-  max_tokens: 1024 #4096
+  max_tokens: 8192
   timeout: 6000
 
 
